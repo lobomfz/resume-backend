@@ -13,7 +13,7 @@ exports.get = (req, res, next) => {
 			}
 		)
 		.then((response) => {
-			res.status(200).send(response.data.replace(/(?:\r\n|\r|\n)/g, '<br>'));
+			res.status(200).send(response.data);
 		})
 		.catch((error) => {
 			console.log(error);
