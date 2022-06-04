@@ -1,10 +1,11 @@
 const axios = require('axios');
 const TOKEN = process.env.TOKEN;
 
-exports.get = (req, res, next) => {
+exports.post = (req, res, next) => {
 	axios
-		.get(
-			'http://localhost:8080/jenkins/job/Self%20Building%20Resume%20Pipeline/lastBuild/buildNumber',
+		.post(
+			'http://localhost:8080/jenkins/job/Self%20Building%20Resume%20Pipeline/build',
+			{},
 			{
 				auth: {
 					username: 'lobomfz',
@@ -13,7 +14,7 @@ exports.get = (req, res, next) => {
 			}
 		)
 		.then((response) => {
-			res.send(JSON.stringify(response.data));
+			res.status(200).send(response.data);
 		})
 		.catch((error) => {
 			console.log(error);
