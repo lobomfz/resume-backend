@@ -13,11 +13,7 @@ exports.get = (req, res, next) => {
 			}
 		)
 		.then((response) => {
-			res
-				.status(200)
-				.send(
-					'<div style="white-space: pre-wrap;" }}>' + response.data + '</div>'
-				);
+			res.status(200).send(response.data);
 		})
 		.catch((error) => {
 			console.log(error);
