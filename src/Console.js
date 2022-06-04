@@ -13,7 +13,7 @@ exports.get = (req, res, next) => {
 			}
 		)
 		.then((response) => {
-			res.status(200).send(response.data);
+			res.status(200).send(response.data.slice(-5000));
 		})
 		.catch((error) => {
 			console.log(error);
