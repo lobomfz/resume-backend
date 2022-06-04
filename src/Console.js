@@ -4,7 +4,7 @@ const TOKEN = process.env.TOKEN;
 exports.get = (req, res, next) => {
 	axios
 		.get(
-			'http://localhost:8080/jenkins/job/Self%20Building%20Resume%20Pipeline/lastBuild/logText/progressiveText?start=0',
+			'https://lobomfz.com/jenkins/job/Self%20Building%20Resume%20Pipeline/lastBuild/logText/progressiveText?start=0',
 			{
 				auth: {
 					username: 'lobomfz',
