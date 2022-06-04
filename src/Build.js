@@ -13,7 +13,7 @@ exports.get = (req, res, next) => {
 			}
 		)
 		.then((response) => {
-			res.json(response.data);
+			res.send(JSON.stringify(response.data));
 		})
 		.catch((error) => {
 			console.log(error);
