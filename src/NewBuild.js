@@ -1,14 +1,19 @@
 const axios = require('axios');
 const TOKEN = process.env.TOKEN;
 
+const API_ENDPOINT =
+	process.env.NODE_APP_API_ENDPOINT || 'https://lobomfz.com/';
+
+const username = process.env.JENKINS_USERNAME || 'lobomfz';
+
 exports.post = (req, res, next) => {
 	axios
 		.post(
-			'https://lobomfz.com/jenkins/job/Self%20Building%20Resume%20Pipeline/build',
+			`${API_ENDPOINT}/jenkins/job/Self%20Building%20Resume%20Pipeline/build`,
 			{},
 			{
 				auth: {
-					username: 'lobomfz',
+					username: username,
 					password: TOKEN,
 				},
 			}
