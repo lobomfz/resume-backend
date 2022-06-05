@@ -6,10 +6,13 @@ const API_ENDPOINT =
 
 const username = process.env.JENKINS_USERNAME || 'lobomfz';
 
+const jobName =
+	process.env.JENKINS_JOB_NAME || 'Self%20Building%20Resume%20Pipeline';
+
 exports.get = (req, res, next) => {
 	axios
 		.get(
-			`${API_ENDPOINT}/jenkins/job/Self%20Building%20Resume%20Pipeline/lastBuild/logText/progressiveText?start=0`,
+			`${API_ENDPOINT}/jenkins/job/${jobName}/lastBuild/logText/progressiveText?start=0`,
 			{
 				auth: {
 					username: username,

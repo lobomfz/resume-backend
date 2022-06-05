@@ -6,10 +6,13 @@ const API_ENDPOINT =
 
 const username = process.env.JENKINS_USERNAME || 'lobomfz';
 
+const jobName =
+	process.env.JENKINS_JOB_NAME || 'Self%20Building%20Resume%20Pipeline';
+
 exports.post = (req, res, next) => {
 	axios
 		.post(
-			`${API_ENDPOINT}/jenkins/job/Self%20Building%20Resume%20Pipeline/build`,
+			`${API_ENDPOINT}/jenkins/job/${jobName}/build`,
 			{},
 			{
 				auth: {

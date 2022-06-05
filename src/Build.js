@@ -6,17 +6,17 @@ const API_ENDPOINT =
 
 const username = process.env.JENKINS_USERNAME || 'lobomfz';
 
+const jobName =
+	process.env.JENKINS_JOB_NAME || 'Self%20Building%20Resume%20Pipeline';
+
 exports.get = (req, res, next) => {
 	axios
-		.get(
-			`${API_ENDPOINT}/jenkins/job/Self%20Building%20Resume%20Pipeline/lastBuild/buildNumber`,
-			{
-				auth: {
-					username: username,
-					password: TOKEN,
-				},
-			}
-		)
+		.get(`${API_ENDPOINT}/jenkins/job/${jobName}/lastBuild/buildNumber`, {
+			auth: {
+				username: username,
+				password: TOKEN,
+			},
+		})
 		.then((response) => {
 			res.send(JSON.stringify(response.data));
 		})
